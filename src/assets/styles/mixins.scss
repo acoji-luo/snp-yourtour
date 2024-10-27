@@ -1,0 +1,105 @@
+@import "colors.scss";
+
+// typography
+
+@mixin h1-desktop {
+	color: $black;
+	font-size: 96px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 109%;
+	letter-spacing: 1.92px;
+}
+
+@mixin h1-mobile {
+	color: $black;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 112%;
+	letter-spacing: 0.68px;
+}
+
+@mixin h2-desktop {
+	color: $black;
+	font-size: 59px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 124%;
+}
+
+@mixin h2-mobile {
+	color: $black;
+	font-size: 34px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 112%;
+	letter-spacing: 0.68px;
+}
+
+@mixin h3-desktop {
+	color: $black;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 122%;
+}
+
+@mixin h3-mobile {
+	color: $black;
+	font-size: 23px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 120%;
+	letter-spacing: 0.92px;
+}
+
+@mixin p-big {
+	color: $black;
+	font-size: 23px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 122%;
+}
+
+@mixin p-big-mobile {
+	color: $black;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 142%;
+}
+
+@mixin p-normal {
+	color: $black;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 142%;
+}
+
+@mixin p-normal-mobile {
+	color: $black;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 142%;
+}
+
+@mixin p-small {
+	color: $black;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 142%;
+	letter-spacing: -0.17px;
+}
+
+@mixin p-small-mobile {
+	color: $black;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 142%;
+	letter-spacing: -0.16px;
+}

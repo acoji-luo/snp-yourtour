@@ -1,0 +1,33 @@
+@import "colors.scss";
+@import "mixins.scss";
+
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+.container {
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.section-main {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 39.9%),
+		linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+		url("../images/header-img.jpg") lightgray 50% / cover no-repeat;
+
+	width: 1920px;
+	height: 830px;
+}
+
+.header {
+	&-menu {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&__list {
+			a {
+				@include p-normal;
+			}
+		}
+	}
+}
