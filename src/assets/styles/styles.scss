@@ -6,28 +6,163 @@ body {
 }
 
 .container {
-	width: 1170px;
+	width: 100%;
+	max-width: 1170px;
 	margin: 0 auto;
+	padding: 0 15px;
 }
 
 .section-main {
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 39.9%),
 		linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
-		url("../images/header-img.jpg") lightgray 50% / cover no-repeat;
+		url("../images/intro-img.png") lightgray 50% / cover no-repeat;
 
-	width: 1920px;
-	height: 830px;
+	max-width: 1920px;
+	height: auto;
 }
 
 .header {
+	padding-top: 30px;
+	padding-bottom: 30px;
 	&-menu {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		&__list {
+			display: flex;
+			gap: 50px;
 			a {
 				@include mixins.p-normal;
+				color: colors.$white;
+				position: relative;
 			}
+
+			a::after {
+				content: "";
+				position: absolute;
+				bottom: -4px;
+				left: 0;
+				width: 0;
+				height: 1px;
+				background-color: currentColor;
+				transition: width 0.2s ease;
+			}
+
+			a:hover::after {
+				width: 100%;
+			}
+		}
+		&__number {
+			@include mixins.p-normal;
+			color: colors.$white;
+		}
+	}
+}
+
+.intro {
+	margin-top: 119px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+
+	&__title {
+		@include mixins.h1-desktop;
+		width: 768px;
+		text-align: center;
+		color: colors.$white;
+	}
+
+	&__subtitle {
+		@include mixins.p-normal;
+		color: colors.$white;
+		width: 562px;
+		text-align: center;
+	}
+
+	&__btn {
+		margin-bottom: 119px;
+		display: flex;
+		padding: 5px 20px;
+		align-items: flex-start;
+		gap: 10px;
+		border-radius: 10px;
+		background: colors.$white;
+		@include mixins.p-small;
+		transition: background 0.25s ease, color 0.25s ease;
+	}
+
+	&__btn:hover {
+		background: colors.$orange200;
+		color: colors.$white;
+	}
+
+	&__btn:active {
+		background: colors.$orange100;
+		color: colors.$black;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		padding: 0 57px;
+	}
+
+	.header {
+		&-menu__list {
+			gap: 30px;
+		}
+	}
+
+	.intro {
+		&__subtitle {
+			width: 400px;
+		}
+
+		&__btn {
+			pointer-events: none;
+		}
+	}
+}
+
+@media (max-width: 360px) {
+	.container {
+		padding: 0 20px;
+	}
+
+	.header {
+		&-menu {
+			&__logo {
+				width: 133px;
+				height: 22px;
+			}
+			&__list {
+				display: none;
+			}
+			&__number {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.intro {
+		margin-top: 52px;
+		gap: 40px;
+		&__title {
+			@include mixins.h1-mobile;
+			color: colors.$white;
+			width: 360px;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$white;
+			width: 310px;
+		}
+
+		&__btn {
+			margin-bottom: 52px;
 		}
 	}
 }
