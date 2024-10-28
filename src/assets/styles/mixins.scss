@@ -1,9 +1,9 @@
-@import "colors.scss";
+@use "colors";
 
 // typography
 
 @mixin h1-desktop {
-	color: $black;
+	color: colors.$black;
 	font-size: 96px;
 	font-style: normal;
 	font-weight: 700;
@@ -12,7 +12,7 @@
 }
 
 @mixin h1-mobile {
-	color: $black;
+	color: colors.$black;
 	font-size: 34px;
 	font-style: normal;
 	font-weight: 700;
@@ -21,7 +21,7 @@
 }
 
 @mixin h2-desktop {
-	color: $black;
+	color: colors.$black;
 	font-size: 59px;
 	font-style: normal;
 	font-weight: 700;
@@ -29,7 +29,7 @@
 }
 
 @mixin h2-mobile {
-	color: $black;
+	color: colors.$black;
 	font-size: 34px;
 	font-style: normal;
 	font-weight: 700;
@@ -38,7 +38,7 @@
 }
 
 @mixin h3-desktop {
-	color: $black;
+	color: colors.$black;
 	font-size: 35px;
 	font-style: normal;
 	font-weight: 500;
@@ -46,7 +46,7 @@
 }
 
 @mixin h3-mobile {
-	color: $black;
+	color: colors.$black;
 	font-size: 23px;
 	font-style: normal;
 	font-weight: 700;
@@ -55,7 +55,7 @@
 }
 
 @mixin p-big {
-	color: $black;
+	color: colors.$black;
 	font-size: 23px;
 	font-style: normal;
 	font-weight: 700;
@@ -63,7 +63,7 @@
 }
 
 @mixin p-big-mobile {
-	color: $black;
+	color: colors.$black;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 700;
@@ -71,7 +71,7 @@
 }
 
 @mixin p-normal {
-	color: $black;
+	color: colors.$black;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
@@ -79,7 +79,7 @@
 }
 
 @mixin p-normal-mobile {
-	color: $black;
+	color: colors.$black;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
@@ -87,7 +87,7 @@
 }
 
 @mixin p-small {
-	color: $black;
+	color: colors.$black;
 	font-size: 17px;
 	font-style: normal;
 	font-weight: 400;
@@ -96,7 +96,7 @@
 }
 
 @mixin p-small-mobile {
-	color: $black;
+	color: colors.$black;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
