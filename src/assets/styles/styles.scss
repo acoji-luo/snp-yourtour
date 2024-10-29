@@ -5,6 +5,10 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
+section {
+	margin-bottom: 135px;
+}
+
 .container {
 	width: 100%;
 	max-width: 1170px;
@@ -20,6 +24,8 @@ body {
 	max-width: 1920px;
 	height: auto;
 }
+
+// header
 
 .header {
 	padding-top: 30px;
@@ -58,6 +64,8 @@ body {
 		}
 	}
 }
+
+// intro
 
 .intro {
 	margin-top: 119px;
@@ -104,6 +112,103 @@ body {
 	}
 }
 
+// tour
+
+.tour {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__title {
+		margin-bottom: 35px;
+		@include mixins.h2-desktop;
+	}
+
+	&__list {
+		display: flex;
+		gap: 30px;
+		margin-bottom: 106px;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		a {
+			@include mixins.p-big;
+			position: relative;
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		a::after {
+			content: "";
+			position: absolute;
+			bottom: -6px;
+			left: 0;
+			width: 0;
+			height: 1px;
+			background-color: colors.$orange200;
+			transition: width 0.2s ease, height 0.2s ease;
+		}
+
+		a:hover::after {
+			width: 100%;
+			height: 2px;
+		}
+
+		a:hover {
+			color: colors.$orange200;
+		}
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		.tour-card {
+			padding: 50px;
+			width: 370px;
+			height: 531px;
+			border-radius: 50px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			&__title {
+				margin-bottom: 16px;
+				width: 220px;
+				@include mixins.h3-desktop;
+				color: colors.$white;
+			}
+
+			&__subtitle {
+				@include mixins.p-small;
+				color: colors.$white;
+			}
+
+			&__btn {
+				@include mixins.p-big;
+				margin-top: auto;
+				display: flex;
+				padding: 7px 20px;
+				align-items: center;
+				align-self: flex-start;
+				gap: 15px;
+				color: colors.$white;
+				transition: background-color 0.25s ease;
+				border-radius: 50px;
+			}
+
+			&__btn:hover {
+				background-color: colors.$green400;
+			}
+
+			&__btn:active {
+				background-color: colors.$orange200;
+			}
+		}
+	}
+}
+
 @media (max-width: 1024px) {
 	.container {
 		padding: 0 57px;
@@ -124,9 +229,29 @@ body {
 			pointer-events: none;
 		}
 	}
+
+	.tour {
+		.tour__wrapper {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 18px;
+
+			.tour-card {
+				width: 450px;
+				height: 531px;
+
+				&__title {
+					width: auto;
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: 360px) {
+	section {
+		margin-bottom: 75px;
+	}
+
 	.container {
 		padding: 0 20px;
 	}
@@ -163,6 +288,49 @@ body {
 
 		&__btn {
 			margin-bottom: 52px;
+		}
+	}
+
+	.tour {
+		&__title {
+			margin-bottom: 30px;
+			@include mixins.h2-mobile;
+		}
+
+		&__list {
+			margin-bottom: 50px;
+			gap: 10px;
+			a {
+				@include mixins.p-big-mobile;
+			}
+		}
+
+		.tour__wrapper {
+			grid-template-columns: repeat(1, 1fr);
+
+			.tour-card {
+				padding: 25px;
+				width: 318px;
+				height: 318px;
+				border-radius: 20px;
+
+				&__title {
+					@include mixins.h3-mobile;
+					color: colors.$white;
+				}
+
+				&__subtitle {
+					@include mixins.p-small-mobile;
+					color: colors.$white;
+				}
+
+				&__btn {
+					@include mixins.p-big-mobile;
+					color: colors.$white;
+					padding: 0;
+					pointer-events: none;
+				}
+			}
 		}
 	}
 }
