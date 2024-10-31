@@ -13,7 +13,7 @@ section {
 	width: 100%;
 	max-width: 1170px;
 	margin: 0 auto;
-	padding: 0 15px;
+	// padding: 0 15px;
 }
 
 .section-main {
@@ -209,6 +209,241 @@ section {
 	}
 }
 
+.forms {
+	&__top {
+		margin-bottom: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__title {
+		margin-bottom: 30px;
+		@include mixins.h2-desktop;
+	}
+
+	&__subtitle {
+		@include mixins.p-normal;
+		color: colors.$gray300;
+		width: 400px;
+	}
+}
+
+$form-background-color: #f6f5f2;
+$form-input-background: #f4f4f2;
+$form-border-color: #dcdcdc;
+$form-button-color: #174734;
+$form-button-reset-color: #a5c9bc;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	// align-items: center;
+	padding: 70px;
+	border-radius: 50px;
+	background-color: colors.$white;
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 500px;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 33px;
+	}
+
+	&__row {
+		display: flex;
+		flex-direction: column;
+		// gap: 8px;
+
+		&--two-columns {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+		}
+
+		&--checkbox {
+			align-items: flex-start;
+			width: 500px;
+		}
+	}
+
+	&__column {
+		width: 460px;
+	}
+
+	&__label {
+		@include mixins.p-normal;
+	}
+
+	&__input,
+	&__textarea,
+	&__select {
+		@include mixins.p-normal;
+		width: 100%;
+		color: colors.$gray300;
+		padding: 20px;
+		border-radius: 10px;
+		border: 1px solid colors.$beige200;
+		background: colors.$beige100;
+	}
+
+	&__select {
+		appearance: none;
+		background-image: url("../images/select-arrow.svg");
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+	}
+
+	&__textarea {
+		resize: none;
+		height: 112px;
+		width: 953px;
+	}
+
+	&__question {
+		@include mixins.p-normal;
+	}
+
+	&__flex {
+		display: flex;
+		gap: 31px;
+		position: relative;
+	}
+
+	&__radio {
+		@include mixins.p-normal;
+
+		padding-left: 25px;
+		font-size: 1rem;
+		color: colors.$black;
+		cursor: pointer;
+
+		input {
+			margin-right: 11px;
+			// appearance: none;
+			// -webkit-appearance: none;
+			// position: absolute;
+		}
+	}
+
+	&__checkbox {
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		color: #333;
+
+		input {
+			margin-right: 10px;
+		}
+	}
+
+	&__link {
+		color: $form-button-color;
+		text-decoration: underline;
+	}
+
+	&__actions {
+		display: flex;
+		gap: 10px;
+		margin-top: 15px;
+	}
+
+	&__button {
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		font-size: 14px;
+		cursor: pointer;
+		color: #fff;
+
+		&--submit {
+			background-color: $form-button-color;
+		}
+
+		&--reset {
+			background-color: $form-button-reset-color;
+		}
+	}
+}
+
+.reviews {
+	&__top {
+		margin-bottom: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 30px;
+	}
+
+	&__title {
+		@include mixins.h2-desktop;
+		width: 520px;
+		text-align: center;
+	}
+
+	&__subtitle {
+		@include mixins.p-normal;
+		color: colors.$gray300;
+		text-align: center;
+		width: 400px;
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 30px;
+		.review {
+			// width: 490px;
+			width: auto;
+			height: 672px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			background: colors.$beige200;
+			border-radius: 50px;
+			padding: 40px;
+
+			&__box {
+				display: flex;
+				flex-direction: column;
+				gap: 30px;
+			}
+
+			&__text {
+				@include mixins.p-big;
+			}
+
+			&__user {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			&__left {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+
+			&__name {
+				@include mixins.h3-desktop;
+			}
+
+			&__tour {
+				@include mixins.p-small;
+			}
+
+			&__img {
+				border-radius: 100px;
+			}
+		}
+	}
+}
+
 @media (max-width: 1024px) {
 	.container {
 		padding: 0 57px;
@@ -242,7 +477,21 @@ section {
 				&__title {
 					width: auto;
 				}
+
+				&__btn {
+					pointer-events: none;
+				}
 			}
+		}
+	}
+
+	.reviews {
+		&__wrapper {
+			gap: 18px;
+		}
+		.review {
+			min-height: 761px;
+			height: auto;
 		}
 	}
 }
@@ -329,6 +578,47 @@ section {
 					color: colors.$white;
 					padding: 0;
 					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	.reviews {
+		&__top {
+			margin-bottom: 50px;
+		}
+
+		&__title {
+			@include mixins.h2-mobile;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$gray300;
+			width: 318px;
+		}
+
+		&__wrapper {
+			flex-direction: column;
+
+			.review {
+				padding: 20px;
+				border-radius: 20px;
+				height: auto;
+				min-height: 368px;
+				gap: 40px;
+
+				&__text {
+					@include mixins.p-big-mobile;
+				}
+
+				&__name {
+					@include mixins.h3-mobile;
+				}
+
+				&__tour {
+					@include mixins.p-small-mobile;
+					color: colors.$gray300;
 				}
 			}
 		}
