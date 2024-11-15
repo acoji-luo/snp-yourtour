@@ -279,6 +279,20 @@ section {
 		grid-template-columns: 1fr;
 		gap: 8px;
 
+		.input-highlight {
+			transition: background-color 0.3s ease;
+		}
+
+		.input-highlight:hover {
+			background-color: colors.$beige200;
+			border: 1px solid colors.$beige200;
+		}
+
+		.input-highlight:focus {
+			border: 1px solid colors.$gray300;
+			background-color: colors.$beige200;
+		}
+
 		&--two-columns {
 			grid-template-columns: 1fr 1fr;
 			gap: 30px;
