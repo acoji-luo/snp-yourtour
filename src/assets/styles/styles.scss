@@ -9,6 +9,12 @@ section {
 	margin-bottom: 135px;
 }
 
+.wrapper {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
 .container {
 	width: 100%;
 	max-width: 1170px;
@@ -355,7 +361,7 @@ section {
 
 	&__flex {
 		display: flex;
-		gap: 31px;
+		gap: 30px;
 		position: relative;
 		user-select: none;
 
@@ -422,6 +428,7 @@ section {
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		flex: none;
 
 		&:checked::before {
 			content: "";
@@ -533,7 +540,6 @@ section {
 		justify-content: center;
 		gap: 30px;
 		.review {
-			// width: 490px;
 			width: auto;
 			height: 672px;
 			display: flex;
@@ -570,6 +576,7 @@ section {
 
 			&__tour {
 				@include mixins.p-small;
+				color: colors.$gray300;
 			}
 
 			&__img {
@@ -868,7 +875,7 @@ section {
 	}
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1240px) {
 	.container {
 		padding: 0 57px;
 	}
@@ -884,8 +891,9 @@ section {
 			width: 400px;
 		}
 
-		&__btn {
-			pointer-events: none;
+		&__btn:hover {
+			background-color: colors.$white;
+			color: colors.$black;
 		}
 	}
 
@@ -902,8 +910,8 @@ section {
 					width: auto;
 				}
 
-				&__btn {
-					pointer-events: none;
+				&__btn:hover {
+					background-color: initial;
 				}
 			}
 		}
@@ -950,9 +958,430 @@ section {
 
 	.story {
 		&-card {
-			&__btn {
-				pointer-events: none;
+			&__btn:hover {
+				background-color: initial;
 			}
+		}
+	}
+
+	.form {
+		padding: 60px;
+
+		&__button--submit:hover {
+			background-color: colors.$green400;
+		}
+
+		&__button--reset:hover {
+			background-color: colors.$green100;
+		}
+	}
+}
+
+@media (max-width: 940px) {
+	section {
+		margin-bottom: 75px;
+	}
+
+	.container {
+		padding: 0 20px;
+	}
+
+	.header {
+		&-menu {
+			.header-menu__logo svg {
+				width: 133px;
+				height: 22px;
+			}
+
+			&__number {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.tour {
+		.tour__wrapper {
+			.tour-card {
+				padding: 25px;
+				width: 318px;
+				height: 318px;
+				border-radius: 20px;
+
+				&__title {
+					@include mixins.h3-mobile;
+					color: colors.$white;
+				}
+
+				&__subtitle {
+					@include mixins.p-small-mobile;
+					color: colors.$white;
+				}
+			}
+		}
+	}
+
+	.reviews {
+		.review {
+			min-height: 600px;
+
+			&__text {
+				@include mixins.p-big-mobile;
+			}
+
+			&__name {
+				@include mixins.h3-mobile;
+			}
+
+			&__tour {
+				@include mixins.p-small-mobile;
+				color: colors.$gray300;
+			}
+		}
+	}
+}
+
+@media (max-width: 740px) {
+	.header {
+		&-menu {
+			&__list {
+				display: none;
+			}
+		}
+	}
+
+	.intro {
+		margin-top: 52px;
+		gap: 40px;
+		&__title {
+			@include mixins.h1-mobile;
+			color: colors.$white;
+			width: 360px;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$white;
+			width: 310px;
+		}
+
+		&__btn {
+			margin-bottom: 52px;
+		}
+	}
+
+	.tour {
+		&__title {
+			margin-bottom: 30px;
+			@include mixins.h2-mobile;
+		}
+
+		&__list {
+			margin-bottom: 50px;
+			gap: 20px;
+			a {
+				@include mixins.p-big-mobile;
+			}
+		}
+
+		.tour__wrapper {
+			grid-template-columns: repeat(1, 1fr);
+			width: 100%;
+
+			.tour-card {
+				padding: 25px;
+				// width: 318px;
+				width: 100%;
+				min-height: 350px;
+				border-radius: 20px;
+
+				&__title {
+					@include mixins.h3-mobile;
+					color: colors.$white;
+				}
+
+				&__subtitle {
+					@include mixins.p-small-mobile;
+					color: colors.$white;
+				}
+
+				&__btn {
+					@include mixins.p-big-mobile;
+					color: colors.$white;
+					padding: 0;
+				}
+
+				&__btn:hover {
+					background-color: initial;
+				}
+			}
+		}
+	}
+
+	.forms {
+		&__top {
+			margin-bottom: 40px;
+		}
+
+		&__title {
+			@include mixins.h2-mobile;
+			margin-bottom: 20px;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			text-align: center;
+			color: colors.$gray300;
+			width: 318px;
+		}
+		.form {
+			grid-template-columns: 1fr;
+
+			&__container {
+				gap: 30px;
+			}
+
+			&__button {
+				@include mixins.p-normal-mobile;
+			}
+
+			&__button--submit {
+				color: colors.$white;
+			}
+
+			&__button--reset {
+				color: colors.$green400;
+			}
+
+			&__row {
+				.form__label {
+					@include mixins.p-normal-mobile;
+				}
+
+				.form__input {
+					@include mixins.p-normal-mobile;
+					padding: 10px;
+				}
+
+				.form__select {
+					@include mixins.p-normal-mobile;
+					padding: 10px;
+				}
+
+				.form__question {
+					@include mixins.p-normal-mobile;
+				}
+
+				.form__radio {
+					@include mixins.p-normal-mobile;
+				}
+
+				.form__checkbox {
+					@include mixins.p-normal-mobile;
+					color: colors.$gray300;
+				}
+
+				grid-template-columns: 1fr;
+
+				&--two-columns {
+					grid-template-columns: 1fr;
+					gap: 30px;
+				}
+			}
+
+			&__actions {
+				gap: 15px;
+			}
+		}
+	}
+
+	.reviews {
+		&__top {
+			margin-bottom: 50px;
+		}
+
+		&__title {
+			@include mixins.h2-mobile;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$gray300;
+			width: 318px;
+		}
+
+		&__wrapper {
+			flex-direction: column;
+
+			.review {
+				padding: 20px;
+				border-radius: 20px;
+				height: auto;
+				min-height: 368px;
+				gap: 40px;
+
+				&__text {
+					@include mixins.p-big-mobile;
+				}
+
+				&__name {
+					@include mixins.h3-mobile;
+				}
+
+				&__tour {
+					@include mixins.p-small-mobile;
+				}
+			}
+		}
+	}
+
+	.pictures {
+		&__top {
+			margin-bottom: 50px;
+			gap: 20px;
+		}
+
+		&__title {
+			@include mixins.h2-mobile;
+			text-align: center;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$gray300;
+			text-align: center;
+			width: 318px;
+		}
+
+		.images {
+			gap: 18px;
+			&__row {
+				gap: 10px;
+
+				&:nth-child(1) {
+					grid-template-columns: repeat(2, 1fr);
+					.images__item:nth-child(1) {
+						display: none;
+					}
+				}
+
+				&:nth-child(2) {
+					grid-template-columns: repeat(3, 1fr);
+					.images__item:nth-child(2) {
+						display: none;
+					}
+				}
+
+				&:nth-child(3) {
+					grid-template-columns: repeat(2, 1fr);
+					.images__item:nth-child(2) {
+						display: none;
+					}
+				}
+			}
+
+			&__item {
+				height: 160px;
+				border-radius: 20px;
+			}
+		}
+	}
+
+	.story {
+		&__wrapper {
+			gap: 20px;
+		}
+
+		&__top {
+			margin-bottom: 50px;
+			gap: 20px;
+		}
+
+		&__title {
+			@include mixins.h2-mobile;
+			text-align: center;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$gray300;
+			width: 318px;
+		}
+
+		&-card {
+			padding: 30px;
+			height: 455px;
+			border-radius: 20px;
+
+			&__title {
+				margin-bottom: 20px;
+				@include mixins.h3-mobile;
+				color: colors.$white;
+			}
+
+			&__text {
+				@include mixins.p-normal-mobile;
+				color: colors.$white;
+				width: auto;
+			}
+
+			&__btn {
+				@include mixins.p-big-mobile;
+				color: colors.$white;
+			}
+
+			&__socials {
+				display: none;
+			}
+		}
+	}
+
+	.mail {
+		flex-direction: column;
+
+		&__image {
+			width: 200px;
+			height: 200px;
+			border-radius: 20px;
+		}
+
+		&__wrapper {
+			width: 291px;
+		}
+
+		&__title {
+			@include mixins.h3-mobile;
+			text-align: center;
+		}
+
+		&__subtitle {
+			@include mixins.p-normal-mobile;
+			color: colors.$gray300;
+			text-align: center;
+		}
+	}
+
+	.footer {
+		padding: 21px 0 21px 0;
+		&__wrapper {
+			flex-direction: column;
+			gap: 7px;
+		}
+
+		&__text {
+			@include mixins.p-normal-mobile;
+			color: colors.$gray300;
+		}
+
+		&__socials {
+			gap: 15px;
+		}
+
+		&__social {
+			gap: 5px;
+		}
+
+		&__link {
+			@include mixins.p-normal-mobile;
 		}
 	}
 }
@@ -1039,8 +1468,35 @@ section {
 					@include mixins.p-big-mobile;
 					color: colors.$white;
 					padding: 0;
-					pointer-events: none;
 				}
+
+				&__btn:hover {
+					background-color: initial;
+				}
+			}
+		}
+	}
+
+	.forms {
+		.form {
+			padding: 20px 20px 40px 20px;
+
+			&__button {
+				white-space: nowrap;
+			}
+
+			.radio__input {
+				width: 20px;
+				height: 20px;
+			}
+
+			.checkbox__input {
+				width: 20px;
+				height: 20px;
+			}
+
+			&__flex--checkbox {
+				gap: 10px;
 			}
 		}
 	}
@@ -1080,7 +1536,6 @@ section {
 
 				&__tour {
 					@include mixins.p-small-mobile;
-					color: colors.$gray300;
 				}
 			}
 		}
