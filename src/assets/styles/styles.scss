@@ -24,7 +24,7 @@ section {
 .section-main {
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 39.9%),
 		linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
-		url("../images/intro-img.png") lightgray 50% / cover no-repeat;
+		url("../images/intro-img.jpg") lightgray 50% / cover no-repeat;
 
 	max-width: 1920px;
 	height: auto;
@@ -557,11 +557,13 @@ section {
 
 			&__text {
 				@include mixins.p-big;
+				// width: 490px;
 			}
 
 			&__user {
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
 			}
 
 			&__left {
@@ -922,8 +924,12 @@ section {
 			gap: 18px;
 		}
 		.review {
-			min-height: 761px;
+			min-height: 840px;
 			height: auto;
+
+			// &__text {
+			// 	width: 370px;
+			// }
 		}
 	}
 
@@ -967,6 +973,10 @@ section {
 	.form {
 		padding: 60px;
 
+		&__textarea {
+			height: 140px;
+		}
+
 		&__button--submit:hover {
 			background-color: colors.$green400;
 		}
@@ -1000,6 +1010,10 @@ section {
 	}
 
 	.tour {
+		&__list {
+			margin-bottom: 75px;
+		}
+
 		.tour__wrapper {
 			.tour-card {
 				padding: 25px;
@@ -1020,22 +1034,32 @@ section {
 		}
 	}
 
+	.forms {
+		&__top {
+			margin-bottom: 75px;
+		}
+	}
+
 	.reviews {
-		.review {
-			min-height: 600px;
+		&__top {
+			margin-bottom: 75px;
+		}
 
-			&__text {
-				@include mixins.p-big-mobile;
-			}
+		&__wrapper {
+			flex-direction: column;
+			gap: 30px;
+		}
+	}
 
-			&__name {
-				@include mixins.h3-mobile;
-			}
+	.pictures {
+		&__top {
+			margin-bottom: 75px;
+		}
+	}
 
-			&__tour {
-				@include mixins.p-small-mobile;
-				color: colors.$gray300;
-			}
+	.story {
+		&__top {
+			margin-bottom: 75px;
 		}
 	}
 }
@@ -1402,77 +1426,24 @@ section {
 				height: 22px;
 			}
 
-			&__list {
-				display: none;
-			}
 			&__number {
 				font-size: 16px;
 			}
 		}
 	}
 
-	.intro {
-		margin-top: 52px;
-		gap: 40px;
-		&__title {
-			@include mixins.h1-mobile;
-			color: colors.$white;
-			width: 360px;
-		}
-
-		&__subtitle {
-			@include mixins.p-normal-mobile;
-			color: colors.$white;
-			width: 310px;
-		}
-
-		&__btn {
-			margin-bottom: 52px;
-		}
-	}
-
 	.tour {
-		&__title {
-			margin-bottom: 30px;
-			@include mixins.h2-mobile;
-		}
-
 		&__list {
-			margin-bottom: 50px;
 			gap: 10px;
-			a {
-				@include mixins.p-big-mobile;
-			}
 		}
 
 		.tour__wrapper {
-			grid-template-columns: repeat(1, 1fr);
-
 			.tour-card {
 				padding: 25px;
 				width: 318px;
 				height: 318px;
+				min-height: 318px;
 				border-radius: 20px;
-
-				&__title {
-					@include mixins.h3-mobile;
-					color: colors.$white;
-				}
-
-				&__subtitle {
-					@include mixins.p-small-mobile;
-					color: colors.$white;
-				}
-
-				&__btn {
-					@include mixins.p-big-mobile;
-					color: colors.$white;
-					padding: 0;
-				}
-
-				&__btn:hover {
-					background-color: initial;
-				}
 			}
 		}
 	}
@@ -1483,6 +1454,10 @@ section {
 
 			&__button {
 				white-space: nowrap;
+			}
+
+			&__textarea {
+				height: 130px;
 			}
 
 			.radio__input {
@@ -1504,16 +1479,7 @@ section {
 	.reviews {
 		&__top {
 			margin-bottom: 50px;
-		}
-
-		&__title {
-			@include mixins.h2-mobile;
-		}
-
-		&__subtitle {
-			@include mixins.p-normal-mobile;
-			color: colors.$gray300;
-			width: 318px;
+			gap: 20px;
 		}
 
 		&__wrapper {
@@ -1542,50 +1508,7 @@ section {
 	}
 
 	.pictures {
-		&__top {
-			margin-bottom: 50px;
-			gap: 20px;
-		}
-
-		&__title {
-			@include mixins.h2-mobile;
-			text-align: center;
-		}
-
-		&__subtitle {
-			@include mixins.p-normal-mobile;
-			color: colors.$gray300;
-			text-align: center;
-			width: 318px;
-		}
-
 		.images {
-			gap: 18px;
-			&__row {
-				gap: 10px;
-
-				&:nth-child(1) {
-					grid-template-columns: repeat(2, 1fr);
-					.images__item:nth-child(1) {
-						display: none;
-					}
-				}
-
-				&:nth-child(2) {
-					grid-template-columns: repeat(3, 1fr);
-					.images__item:nth-child(2) {
-						display: none;
-					}
-				}
-
-				&:nth-child(3) {
-					grid-template-columns: repeat(2, 1fr);
-					.images__item:nth-child(2) {
-						display: none;
-					}
-				}
-			}
-
 			&__item {
 				height: 110px;
 				border-radius: 20px;
@@ -1594,26 +1517,6 @@ section {
 	}
 
 	.story {
-		&__wrapper {
-			gap: 20px;
-		}
-
-		&__top {
-			margin-bottom: 50px;
-			gap: 20px;
-		}
-
-		&__title {
-			@include mixins.h2-mobile;
-			text-align: center;
-		}
-
-		&__subtitle {
-			@include mixins.p-normal-mobile;
-			color: colors.$gray300;
-			width: 318px;
-		}
-
 		&-card {
 			padding: 30px;
 			height: 455px;
@@ -1623,72 +1526,16 @@ section {
 				margin-bottom: 20px;
 				@include mixins.h3-mobile;
 				color: colors.$white;
-			}
-
-			&__text {
-				@include mixins.p-normal-mobile;
-				color: colors.$white;
-				width: 262px;
-			}
-
-			&__btn {
-				@include mixins.p-big-mobile;
-				color: colors.$white;
-			}
-
-			&__socials {
-				display: none;
+				width: 130px;
 			}
 		}
 	}
 
 	.mail {
-		flex-direction: column;
-
 		&__image {
 			width: 130px;
 			height: 133px;
 			border-radius: 20px;
-		}
-
-		&__wrapper {
-			width: 291px;
-		}
-
-		&__title {
-			@include mixins.h3-mobile;
-			text-align: center;
-		}
-
-		&__subtitle {
-			@include mixins.p-normal-mobile;
-			color: colors.$gray300;
-			text-align: center;
-		}
-	}
-
-	.footer {
-		padding: 21px 0 21px 0;
-		&__wrapper {
-			flex-direction: column;
-			gap: 7px;
-		}
-
-		&__text {
-			@include mixins.p-normal-mobile;
-			color: colors.$gray300;
-		}
-
-		&__socials {
-			gap: 15px;
-		}
-
-		&__social {
-			gap: 5px;
-		}
-
-		&__link {
-			@include mixins.p-normal-mobile;
 		}
 	}
 }
