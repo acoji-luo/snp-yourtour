@@ -1,18 +1,24 @@
 @use "colors";
 @use "mixins";
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: "Roboto", sans-serif;
 }
 
 section {
 	margin-bottom: 135px;
+	scroll-margin-top: 100px;
 }
 
 .wrapper {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
 }
 
 .container {
@@ -118,6 +124,7 @@ section {
 		background: colors.$white;
 		@include mixins.p-small;
 		transition: background 0.25s ease, color 0.25s ease;
+		cursor: pointer;
 	}
 
 	&__btn:hover {
@@ -231,6 +238,7 @@ section {
 				color: colors.$white;
 				transition: background-color 0.25s ease;
 				border-radius: 50px;
+				cursor: pointer;
 			}
 
 			&__btn:hover {
@@ -341,6 +349,7 @@ section {
 		background-image: url("../images/select-arrow.svg");
 		background-repeat: no-repeat;
 		background-position: right 10px center;
+		cursor: pointer;
 	}
 
 	&__textarea {
@@ -410,7 +419,7 @@ section {
 
 	&__checkbox {
 		@include mixins.p-small;
-		width: 100%;
+		width: auto;
 		color: colors.$gray300;
 		user-select: none;
 
@@ -737,6 +746,7 @@ section {
 			color: colors.$white;
 			transition: background-color 0.25s ease;
 			border-radius: 50px;
+			cursor: pointer;
 		}
 
 		&__btn:hover {
