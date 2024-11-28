@@ -1,6 +1,7 @@
 import "../styles/mixins.scss";
 import "../styles/reset.scss";
 import "../styles/styles.scss";
+import "./validation";
 
 const header = document.getElementById("header");
 
