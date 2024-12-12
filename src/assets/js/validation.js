@@ -22,22 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-	const dateFromInput = document.getElementById("date-from");
+const dateFrom = document.getElementById("date-from");
+const dateTo = document.getElementById("date-to");
 
-	const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
-
-	dateFromInput.addEventListener("input", () => {
-		dateFromInput.value = dateFromInput.value.replace(/[^0-9.]/g, "");
-	});
+dateFrom.addEventListener("change", () => {
+	if (dateTo.value && dateFrom.value > dateTo.value) {
+		alert("Дата от не может быть позже, чем Дата до");
+		dateFrom.value = "";
+	}
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-	const dateFromInput = document.getElementById("date-to");
-
-	const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
-
-	dateFromInput.addEventListener("input", () => {
-		dateFromInput.value = dateFromInput.value.replace(/[^0-9.]/g, "");
-	});
+dateTo.addEventListener("change", () => {
+	if (dateFrom.value && dateTo.value < dateFrom.value) {
+		alert("Дата до не может быть раньше, чем Дата от");
+		dateTo.value = "";
+	}
 });
