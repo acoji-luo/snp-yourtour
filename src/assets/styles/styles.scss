@@ -606,6 +606,8 @@ main {
 
 			&__img {
 				border-radius: 100px;
+				width: 75px;
+				height: auto;
 			}
 		}
 	}
@@ -809,6 +811,8 @@ main {
 	&__image {
 		border-radius: 50px;
 		object-fit: cover;
+		width: 370px;
+		height: auto;
 	}
 
 	&__wrapper {
