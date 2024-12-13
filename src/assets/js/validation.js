@@ -1,40 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const nameInput = document.getElementById("name");
+	const addInputFilter = (inputElement, regex) => {
+		inputElement.addEventListener("input", () => {
+			inputElement.value = inputElement.value.replace(regex, "");
+		});
+	};
 
-	nameInput.addEventListener("input", () => {
-		nameInput.value = nameInput.value.replace(/[^a-zA-Zа-яА-ЯёЁ0-9\s]/g, "");
-	});
+	addInputFilter(document.getElementById("name"), /[^a-zA-Zа-яА-ЯёЁ0-9\s]/g);
+	addInputFilter(document.getElementById("email"), /[а-яА-ЯёЁ]/g);
+	addInputFilter(document.getElementById("phone"), /[^0-9+()\s-]/g);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-	const emailInput = document.getElementById("email");
+document.querySelector("form").addEventListener("submit", event => {
+	event.preventDefault();
 
-	emailInput.addEventListener("input", () => {
-		emailInput.value = emailInput.value.replace(/[а-яА-ЯёЁ]/g, "");
-	});
-});
+	const dateFrom = document.getElementById("date-from").value;
+	const dateTo = document.getElementById("date-to").value;
 
-document.addEventListener("DOMContentLoaded", () => {
-	const phoneInput = document.getElementById("phone");
+	let errorMessage = "";
 
-	phoneInput.addEventListener("input", () => {
-		phoneInput.value = phoneInput.value.replace(/[^0-9+()\s-]/g, "");
-	});
-});
+	if (dateFrom === dateTo) {
+		errorMessage = "Дата 'от' не должна быть равна дате 'до'.";
+	} else if (dateFrom > dateTo) {
+		errorMessage = "Дата 'от' не может быть позже даты 'до'.";
+	} else {
+		const dateFromObj = new Date(dateFrom);
+		const dateToObj = new Date(dateTo);
 
-const dateFrom = document.getElementById("date-from");
-const dateTo = document.getElementById("date-to");
-
-dateFrom.addEventListener("change", () => {
-	if (dateTo.value && dateFrom.value > dateTo.value) {
-		alert("Дата от не может быть позже, чем Дата до");
-		dateFrom.value = "";
+		if (isNaN(dateFromObj.getTime()) || isNaN(dateToObj.getTime())) {
+			errorMessage = "Пожалуйста, введите правильный формат даты.";
+		}
 	}
-});
 
-dateTo.addEventListener("change", () => {
-	if (dateFrom.value && dateTo.value < dateFrom.value) {
-		alert("Дата до не может быть раньше, чем Дата от");
-		dateTo.value = "";
+	if (errorMessage) {
+		alert(errorMessage);
+	} else {
+		event.target.submit();
+		event.target.reset();
 	}
 });
